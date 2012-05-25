@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 import sys, os
 
 setup(name='@module_name@',
-    version=@version@,
+    version='@version@',
     description="@description@",
     long_description="@description@",
     classifiers=[], 

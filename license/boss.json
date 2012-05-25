@@ -1,0 +1,11 @@
+{
+    "variables": [
+        ["Copyright Year", "<YEAR>"],
+        ["Copyright Owner", "<OWNER>"],
+        ["Copyright Organization", "<ORGANIZATION>"],
+        ["License", "@license@"]
+    ],
+    "external_files": [
+        ["LICENSE", "https://raw.github.com/derks/oss-license/master/@license@"]
+    ]
+}
