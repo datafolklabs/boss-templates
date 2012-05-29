@@ -20,7 +20,7 @@ class @class_prefix@CLIApplication(foundation.CementApp):
         plugin_bootstrap = '@module@.cli.bootstrap'
         config_defaults = defaults
         
-app = @class_prefix@CLIApplication(*args, **kw)
+app = @class_prefix@CLIApplication()
 
 # allow internal bootstrapping to happen
 from @module@.cli.bootstrap import base
