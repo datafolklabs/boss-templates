@@ -20,7 +20,7 @@ class UserResource(ModelResource):
             ]
         methods = ['get']
 
-    profile = fields.ToOneField('hw.hub.api.version0.resources.ProfileResource', 
+    profile = fields.ToOneField('@module@.hub.api.version0.resources.ProfileResource', 
                                 'profile', full=True)
      
 class ProfileResource(ModelResource):

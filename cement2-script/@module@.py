@@ -50,3 +50,6 @@ def main():
         sys.exit(1)
     finally:
         app.close()
+
+if __name__ == '__main__':
+    main()
