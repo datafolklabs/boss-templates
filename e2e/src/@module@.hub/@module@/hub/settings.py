@@ -14,7 +14,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'sqlite': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '@module@.sql',
+        'NAME': '@module@_dev.db',
         'USER': '',
         'PASSWORD': '',
         'HOST': '',
@@ -120,8 +120,8 @@ MIDDLEWARE_CLASSES = (
 )
 
 AUTHENTICATION_BACKENDS = (
-    'social_auth.backends.twitter.TwitterBackend',
-    'social_auth.backends.facebook.FacebookBackend',
+    #'social_auth.backends.twitter.TwitterBackend',
+    #'social_auth.backends.facebook.FacebookBackend',
     'userena.backends.UserenaAuthenticationBackend',
     'guardian.backends.ObjectPermissionBackend',
     'django.contrib.auth.backends.ModelBackend',
@@ -149,6 +149,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'guardian',
     'userena',
+    #'socialauth',
     '@module@.hub.apps.accounts',
     '@module@.hub.apps.example',
 )
@@ -207,6 +208,7 @@ AUTH_PROFILE_MODULE = 'accounts.Profile'
 #USERENA_PROFILE = '@module@.hub.apps.accounts.models.UserProfile'
 ANONYMOUS_USER_ID = -1
 LOGIN_REDIRECT_URL = '/account/%(username)s/'
+USERENA_SIGNIN_REDIRECT_URL = '/account/%(username)s/'
 LOGIN_URL = '/account/signin/'
 LOGOUT_URL = '/account/signout/'
 

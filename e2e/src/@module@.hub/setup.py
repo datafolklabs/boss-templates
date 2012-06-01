@@ -23,6 +23,7 @@ setup(name='@module@.hub',
         "django-tastypie",
         "django-guardian",
         "django-userena",
+        #"django-social-auth",
         "@module@.core",
         ],
     setup_requires=[

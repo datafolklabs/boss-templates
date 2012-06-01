@@ -1,7 +1,7 @@
 
 from tastypie.api import Api
-from @module@.hub.api.version0 import resources
+from @module@.hub.api.version0 import auth, resources
 
-api = Api(api_name='v0')
-api.register(resources.UserResource())
-api.register(resources.ExampleResource())
+v0_api = Api(api_name='v0')
+v0_api.register(resources.UserResource())
+v0_api.register(resources.ExampleResource())

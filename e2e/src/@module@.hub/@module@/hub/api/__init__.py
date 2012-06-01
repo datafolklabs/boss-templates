@@ -1,2 +1,2 @@
 
-from @module@.hub.api.version0 import api as v0
+from @module@.hub.api.version0 import v0_api as v0

@@ -8,13 +8,14 @@
         <meta name="author" content="">
 
         <!-- Le styles -->
-        <link href="{{ css }}/bootstrap.css" rel="stylesheet">
-        <style>
+        <link href="{{ css }}bootstrap.css" rel="stylesheet">
+        <link href="{{ css }}bootstrap-responsive.css" rel="stylesheet">
+        <style type="text/css">
             body {
-                padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+                padding-top: 60px;
+                padding-bottom: 40px;
             }
         </style>
-        <link href="{{ css }}/bootstrap-responsive.css" rel="stylesheet">
 
         <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
@@ -31,31 +32,66 @@
 
     <body>
         <div class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
+            <div class="navbar-inner" style="padding-left: 0px">
+                <div class="container-fluid">
                     <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="{% url search_index %}">@class_prefix@://</a>
-                    <div class="pull-right">
-                        <a class="icon-user" href="#">Login</a>
-                    </div>
+                    <a class="brand" href="#">@project@</a>
+                    
+                    {% if user.is_authenticated %}
+                        <div class="btn-group pull-right">
+                            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="icon-user"></i> {{ user.username }}
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url userena_profile_detail user.username %}">Profile</a></li>
+                                <li class="divider"></li>
+                                <li><a href="{% url userena_signout %}">Sign Out</a></li>
+                            </ul>
+                        </div>
+                    {% else %}
+                        <div class="pull-right" style="padding-top: 10px">
+                            <a href="{% url userena_signup %}">Sign-up</a> / <a href="{% url userena_signin %}">Login</a>
+                        </div>
+                    {% endif %}
+                    
+                    <div class="nav-collapse">
+                        <ul class="nav">
+                            <li class="active"><a href="#">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
                 </div>
             </div>
         </div>
 
-        <div class="container">
-            {% block container %}
+        {% block container %}
+            <div class="container-fluid" style="padding-left: 60px; padding-right: 60px">
                 {% block content %}
                 {% endblock %}
-            {% endblock %}
-        </div> <!-- /container -->
-
+            </div> <!-- /container -->
+        {% endblock %}
+        
+        <hr>
+        
+        {% block footer %}
+            <footer style="padding-left: 20px; padding-right: 20px">
+                <p>&copy; Company 2012</p>
+                <p class="pull-right"><small>Icons by <a href="http://glyphicons.com/">GlyphIcons</a></small></p>
+                
+            </footer>
+        {% endblock %}
+        
         <!-- Le javascript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
-        <script src="{{ js }}/jquery.js"></script>
-  </body>
+        <script src="{{ js }}jquery.js"></script>
+        <script src="{{ js }}bootstrap-dropdown.js"></script>
+
+    </body>
 </html>
