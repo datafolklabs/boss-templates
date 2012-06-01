@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 #
-# @module@.py
 # @description@
 #
 # Created by: @creator@ <@email@>
@@ -15,6 +14,7 @@ from cement2.core import exc as cement_exc
 defaults = backend.defaults('@module@')
 defaults['@module@'] = dict(
     debug=False,
+    foo='bar',
     )
     
 class @class_prefix@BaseController(CementBaseController):
@@ -41,7 +41,7 @@ class @class_prefix@App(foundation.CementApp):
         
 app = @class_prefix@App()
 
-def main(*args, **kw):
+def main():
     try:
         app.setup()
         app.run()
