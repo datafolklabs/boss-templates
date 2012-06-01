@@ -12,5 +12,5 @@ class @class_prefix@TestCase(unittest.TestCase):
         pass
         
     def test_@module@(self):
-        # do something to test @module_name@
+        # do something to test @module@
         pass
