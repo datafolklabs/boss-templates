@@ -9,8 +9,8 @@ from @module@.hub import db
 
 class UserResource(ModelResource):
     class Meta:
-        authentication = auth.@class_prefix@Authentication
-        authorization = auth.@class_prefix@Authorization
+        authentication = auth.@class_prefix@Authentication()
+        authorization = auth.@class_prefix@Authorization()
         queryset = db.User.objects.all()
         resource_name = 'users'
         excludes = [
@@ -20,6 +20,17 @@ class UserResource(ModelResource):
             ]
         methods = ['get']
 
+    profile = fields.ToOneField('hw.hub.api.version0.resources.ProfileResource', 
+                                'profile', full=True)
+     
+class ProfileResource(ModelResource):
+    class Meta:
+        authentication = auth.@class_prefix@Authentication()
+        authorization = auth.@class_prefix@Authorization()
+        queryset = db.Profile.objects.all()
+        resource_name = 'profiles'
+        methods = ['get']
+    
 class ExampleResource(ModelResource):
     class Meta:
         queryset = db.Example.objects.all()

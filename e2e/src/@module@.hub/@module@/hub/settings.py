@@ -149,6 +149,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'guardian',
     'userena',
+    'tastypie',
     #'socialauth',
     '@module@.hub.apps.accounts',
     '@module@.hub.apps.example',

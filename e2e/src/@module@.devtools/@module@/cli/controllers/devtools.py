@@ -23,7 +23,14 @@ class @class_prefix@DevtoolsController(@class_prefix@AbstractBaseController):
         ret = exec_cmd2(['python', 'src/@module@.hub/manage.py', 'syncdb'])
     
     @expose(help='run the hub interface')
-    def start_hub(self):
+    def starthub(self):
         ret = exec_cmd2([
             'python', 'src/@module@.hub/manage.py', 'runserver', '0.0.0.0:8000'
+            ])
+            
+    @expose(help='run the hub interface')
+    def loaddata(self):
+        ret = exec_cmd2([
+            'python', 'src/@module@.hub/manage.py', 'loaddata', 
+            'src/@module@.hub/@module@/hub/fixtures/test_data.json'
             ])

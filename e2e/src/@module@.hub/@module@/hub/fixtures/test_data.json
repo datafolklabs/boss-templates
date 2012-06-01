@@ -1,0 +1,65 @@
+[
+    {
+        "model": "sites.site",
+        "pk": 1,
+        "fields": {
+            "domain": "hw.example.com",
+            "name": "Hello World"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": -1,
+        "fields": {
+            "date_joined": "2011-09-01T13:20:30+03:00",
+            "email": "",
+            "first_name": "Anonymous",
+            "is_active": true,
+            "is_staff": false,
+            "is_superuser": false,
+            "last_login": "2011-09-01T13:20:30+03:00",
+            "last_name": "",
+            "password": "",
+            "username": "AnonymousUser"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "date_joined": "2011-09-01T13:20:30+03:00",
+            "email": "admin@example.com",
+            "first_name": "Admin",
+            "is_active": true,
+            "is_staff": true,
+            "is_superuser": true,
+            "last_login": "2011-09-01T13:20:30+03:00",
+            "last_name": "",
+            "password": "pbkdf2_sha256$10000$E3L26sbEJI21$fHanagkP+N69EDzN2LslPy4iNwQmS4dWk2v7jsGd/Zo=",
+            "username": "admin"
+        }
+    },
+    {
+        "model": "accounts.profile",
+        "pk": 1,
+        "fields": {
+            "user": 1
+        } 
+    },
+    {
+        "model": "accounts.profile",
+        "pk": 2,
+        "fields": {
+            "user": -1
+        } 
+    },
+    {
+        "model": "tastypie.apikey",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "key": "ADMIN_API_KEY",
+            "created": "2011-09-01T13:20:30+03:00"
+        }
+    }
+]

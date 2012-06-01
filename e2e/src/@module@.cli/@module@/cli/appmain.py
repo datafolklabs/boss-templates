@@ -22,11 +22,11 @@ class @class_prefix@CLIApplication(foundation.CementApp):
         
 app = @class_prefix@CLIApplication()
 
-# allow internal bootstrapping to happen
-from @module@.cli.bootstrap import base
-        
 def main(*args, **kw):
     try:
+        # allow internal bootstrapping to happen
+        from @module@.cli.bootstrap import base
+
         app.setup()
         app.run()
     except cement_exc.CementSignalError as e:
