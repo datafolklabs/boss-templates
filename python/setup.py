@@ -2,14 +2,14 @@
 from setuptools import setup, find_packages
 import sys, os
 
-setup(name='@module_name@',
+setup(name='@module@',
     version='@version@',
     description="@description@",
     long_description="@description@",
     classifiers=[], 
     keywords='',
-    author='@project_creator@',
-    author_email='@project_creator_email@',
+    author='@creator@',
+    author_email='@email@',
     url='@url@',
     license='@license@',
     packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),

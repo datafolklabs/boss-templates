@@ -1,4 +1,4 @@
-"""Tests for @module_name@."""
+"""Tests for @module@."""
 
 import unittest
 #from nose.tools import ok_, eq_, raises
@@ -11,6 +11,6 @@ class @class_prefix@TestCase(unittest.TestCase):
     def tearDown(self):
         pass
         
-    def test_@module_name@(self):
+    def test_@module@(self):
         # do something to test @module_name@
         pass
