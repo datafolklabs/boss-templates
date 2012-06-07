@@ -185,10 +185,10 @@ LOGGING = {
 }
 
 ### SOCIAL AUTH SETTINGS
-TWITTER_CONSUMER_KEY         = ''
-TWITTER_CONSUMER_SECRET      = ''
-FACEBOOK_APP_ID              = ''
-FACEBOOK_API_SECRET          = ''
+# TWITTER_CONSUMER_KEY         = ''
+# TWITTER_CONSUMER_SECRET      = ''
+# FACEBOOK_APP_ID              = ''
+# FACEBOOK_API_SECRET          = ''
 # SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/another-login-url/'
 # SOCIAL_AUTH_NEW_USER_REDIRECT_URL = '/new-users-redirect-url/'
 # SOCIAL_AUTH_NEW_ASSOCIATION_REDIRECT_URL = '/new-association-redirect-url/'
@@ -206,7 +206,6 @@ FACEBOOK_API_SECRET          = ''
 
 ### USERENA SETTINGS
 AUTH_PROFILE_MODULE = 'accounts.Profile'
-#USERENA_PROFILE = '@module@.hub.apps.accounts.models.UserProfile'
 ANONYMOUS_USER_ID = -1
 LOGIN_REDIRECT_URL = '/account/%(username)s/'
 USERENA_SIGNIN_REDIRECT_URL = '/account/%(username)s/'
