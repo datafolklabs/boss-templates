@@ -1,0 +1,18 @@
+{% extends 'base_manage.html' %}
+{% block subnav_manage_profile %}active{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "Manage Account" %}{% endblock %}
+
+{% block content_title %}<h2>{% blocktrans with profile.user.username as username %}Account &raquo; {{ username }}{% endblocktrans %}</h2>{% endblock %}
+
+{% block content %}
+
+<form action="" enctype="multipart/form-data" method="post">
+  {% csrf_token %}
+  <fieldset>
+    <legend>{% trans "Edit Profile" %}</legend>
+    {{ form.as_p }}
+  </fieldset>
+  <input type="submit" value="{% trans "Save changes" %}" />
+</form>
+{% endblock %}

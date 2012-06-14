@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block container %}
+    <div class="container-fluid" style="padding-left: 60px; padding-right: 60px">
+        <div class="row-fluid">
+            <div class="span3">
+                <div class="well sidebar-nav">
+                    <ul class="nav nav-list">
+                        <li class="nav-header">@project.capitalize@ Management</li>
+                        <li class="{% block subnav_manage_examples %}{% endblock %}"><a href='{% url manage_examples %}'><span>Examples</span></a></li>
+                        <li class="nav-header">Account Management</li>
+                        <li><a href='{% url userena_profile_detail user.username %}'><span>View Profile</span></a></li>
+                        <li class="{% block subnav_manage_profile %}{% endblock %}"><a href='{% url userena_profile_edit user.username %}'>Edit Profile</a></li>
+                        <li class="{% block subnav_manage_password %}{% endblock %}"><a href='{% url userena_password_change user.username %}'>Change Password</a></li>
+                        <li class="{% block subnav_manage_email %}{% endblock %}"><a href='{% url userena_email_change user.username %}'>Change Email</a></li>
+                    </ul>
+                </div><!--/.well -->
+            </div><!--/span-->
+            <div class="span9">
+                <div class="row-fluid">
+                    {% block content %}
+                    {% endblock %}
+                </div><!--/row-->
+            </div><!--/span-->
+        </div><!--/row-->
+    </div><!--/.fluid-container-->
+{% endblock %}

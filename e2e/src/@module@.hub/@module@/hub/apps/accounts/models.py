@@ -8,3 +8,7 @@ class Profile(UserenaBaseProfile):
                                 unique=True,
                                 verbose_name='user',
                                 related_name='profile')
+
+    @property
+    def display_name(self):
+        return self.user.get_full_name() or self.user.username

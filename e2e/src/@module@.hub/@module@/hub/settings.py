@@ -152,7 +152,7 @@ INSTALLED_APPS = (
     'tastypie',
     #'socialauth',
     '@module@.hub.apps.accounts',
-    '@module@.hub.apps.example',
+    '@module@.hub.apps.examples',
 )
 
 # A sample logging configuration. The only tangible logging

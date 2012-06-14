@@ -34,7 +34,7 @@ class ProfileResource(ModelResource):
 class ExampleResource(ModelResource):
     class Meta:
         queryset = db.Example.objects.all()
-        resource_name = 'example'
+        resource_name = 'examples'
         authorization = auth.@class_prefix@Authorization()
         authentication = auth.@class_prefix@Authentication()
         methods = ['get', 'put', 'post', 'delete']

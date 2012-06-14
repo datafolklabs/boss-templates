@@ -1,0 +1,16 @@
+{% extends 'base_manage.html' %}
+{% block subnav_manage_email %}active{% endblock %}
+{% load i18n %}
+
+{% block content_title %}<h2>{% blocktrans with user.username as username %}Account &raquo; {{ username }}{% endblocktrans %}</h2>{% endblock %}
+
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+    <fieldset>
+    <legend>{% trans "Change email address" %}</legend>
+    {{ form.as_p }}
+    </fieldset>
+    <input type="submit" value="{% trans "Change email" %}" />
+</form>
+{% endblock %}

@@ -17,8 +17,8 @@ urlpatterns = patterns('',
     ### ADMIN
     url(r'^admin/', include(admin.site.urls)),
     
-    ### EXAMPLE
-    url(r'^example/', include('@module@.hub.apps.example.urls')),
+    ### EXAMPLE APP
+    url(r'^examples/', include('@module@.hub.apps.examples.urls')),
     
     ### API
     (r'^api/', include(api.v0.urls)),
