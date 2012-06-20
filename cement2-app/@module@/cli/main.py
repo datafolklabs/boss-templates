@@ -11,9 +11,8 @@ app = @class_prefix@App()
 
 def main():
     try:
-        app.setup()
         from @module@.cli.bootstrap import base
-    
+        app.setup()
         app.run()
     except cement_exc.CementRuntimeError as e:
         raise exc.@class_prefix@RuntimeError(e.msg)
