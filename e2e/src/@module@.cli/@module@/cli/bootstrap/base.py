@@ -17,3 +17,5 @@ def attach_hub_object(app):
 #
 #   from @module@.cli.bootstrap import example
 #
+
+# @boss.mark:cli_bootstrap@

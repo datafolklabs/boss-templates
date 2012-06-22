@@ -17,7 +17,11 @@ class @class_prefix@DevtoolsController(@class_prefix@AbstractBaseController):
         super(@class_prefix@DevtoolsController, self)._setup(app)
         src = abspath(self.app.config.get('devtools', 'source_dir'))
         self.app.config.set('devtools', 'source_dir', src)
-                    
+             
+    @expose(hide=True)
+    def default(self):
+        print("A sub-command is required.  See '@module@ devtools --help'.")
+        
     @expose(help="initialize the @module@.hub database (development)")
     def syncdb(self):
         ret = exec_cmd2(['python', 'src/@module@.hub/manage.py', 'syncdb'])

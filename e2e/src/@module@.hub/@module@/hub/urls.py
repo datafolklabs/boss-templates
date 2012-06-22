@@ -10,17 +10,16 @@ admin.autodiscover()
 urlpatterns = patterns('',
     ### MAIN INDEX
     url('^$', direct_to_template, {'template': 'index.html'}, name='index'),
-        
-    ### ACCOUNTS
+    
+    ### APPS
     url(r'^account/', include('@module@.hub.apps.accounts.urls')),
-
+    url(r'^examples/', include('@module@.hub.apps.examples.urls')),
+    # @boss.mark:url_ref@
+            
     ### ADMIN
     url(r'^admin/', include(admin.site.urls)),
     
-    ### EXAMPLE APP
-    url(r'^examples/', include('@module@.hub.apps.examples.urls')),
-    
     ### API
     (r'^api/', include(api.v0.urls)),
-    
+
 )
