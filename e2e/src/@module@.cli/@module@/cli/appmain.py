@@ -4,6 +4,7 @@ import sys
 import drest
 from cement2.core import foundation, backend
 from cement2.core import exc as cement_exc
+from @module@.core import exc
 from @module@.cli.controllers.base import @class_prefix@BaseController
 
 defaults = backend.defaults('@module@')
@@ -29,12 +30,17 @@ def main(*args, **kw):
 
         app.setup()
         app.run()
+    except exc.@class_prefix@ArgumentError as e:
+        print e
+        sys.exit(1)
+    except exc.@class_prefix@ConfigError as e:
+        print e
+        sys.exit(1)
     except cement_exc.CementSignalError as e:
-        print e.msg
+        print e
         sys.exit(1)
     except drest.exc.dRestRequestError as e:
-        print e.msg
-        print e.response.data
+        print e
         sys.exit(1)
     finally:
         app.close()

@@ -2,8 +2,9 @@
 from tastypie import fields
 from tastypie.resources import ModelResource
 from tastypie.validation import FormValidation
-from @module@.hub.api.version0 import auth
-from johnny.hub.api.version0.resources.user import UserResource
+
+from .. import auth
+from .accounts import UserResource
 from @module@.hub import forms
 from @module@.hub import db
 

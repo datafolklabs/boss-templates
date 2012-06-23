@@ -14,12 +14,12 @@ urlpatterns = patterns('',
     ### APPS
     url(r'^account/', include('@module@.hub.apps.accounts.urls')),
     url(r'^examples/', include('@module@.hub.apps.examples.urls')),
-    # @boss.mark:url_ref@
+    # @boss.mark:hub_urls@
             
     ### ADMIN
     url(r'^admin/', include(admin.site.urls)),
     
     ### API
-    (r'^api/', include(api.v0.urls)),
+    (r'^api/', include(api.latest.urls)),
 
 )

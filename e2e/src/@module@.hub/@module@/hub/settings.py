@@ -153,7 +153,7 @@ INSTALLED_APPS = (
     #'socialauth',
     '@module@.hub.apps.accounts',
     '@module@.hub.apps.examples',
-    # @boss.mark:installed_apps@
+    # @boss.mark:hub_apps@
 )
 
 # A sample logging configuration. The only tangible logging

@@ -3,9 +3,14 @@
         ["Python Module Name Used When Creating Original Project", "module"],
         ["Project Class Prefix Used When Creating Original Project", "class_prefix"],
         ["Resource Name (singular)", "resource"],
-        ["Resource Name (plural)", "plural_resource"],
+        ["Resource Name (plural)", "plural_resource"]
     ],
     "injections": [
-        ["installed_apps", "    '@module@.hub.apps.@plural_resource@',"]
+        ["hub_urls", "url(r'^examples/', include('@module@.hub.apps.@plural_resource@.urls')),"],
+        ["hub_apps", "    '@module@.hub.apps.@plural_resource@',"],
+        ["hub_models", "from @module@.hub.apps.@plural_resource@.models import @resource.capitalize@"],
+        ["hub_forms", "from @module@.hub.apps.@plural_resource@.forms import @resource.capitalize@Form"],
+        ["hub_resources", "api.register(resources.@resource@.@resource.capitalize@Resource())"],
+        ["cli_bootstrap", "from @module@.cli.controllers import @plural_resource@"]
     ]
 }

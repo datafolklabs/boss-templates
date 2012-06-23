@@ -1,11 +1,10 @@
 """@project@ devtools controller."""
 
 import os
-from cement2.core.controller import expose
+from cement2.core.controller import CementBaseController, expose
 from cement2.tools import exec_cmd2, abspath
-from @module@.cli.controllers.base import @class_prefix@AbstractBaseController
     
-class @class_prefix@DevtoolsController(@class_prefix@AbstractBaseController):
+class @class_prefix@DevtoolsController(CementBaseController):
     class Meta:
         label = 'devtools'
         config_section = 'devtools'
@@ -38,3 +37,9 @@ class @class_prefix@DevtoolsController(@class_prefix@AbstractBaseController):
             'python', 'src/@module@.hub/manage.py', 'loaddata', 
             'src/@module@.hub/@module@/hub/fixtures/test_data.json'
             ])
+    
+    @expose(help="perform syncdb, loaddata, starthub together")
+    def fullclean(self):
+        self.syncdb()
+        self.loaddata()
+        self.starthub()
