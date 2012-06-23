@@ -10,7 +10,8 @@
         ["hub_apps", "    '@module@.hub.apps.@plural_resource@',"],
         ["hub_models", "from @module@.hub.apps.@plural_resource@.models import @resource.capitalize@"],
         ["hub_forms", "from @module@.hub.apps.@plural_resource@.forms import @resource.capitalize@Form"],
-        ["hub_resources", "api.register(resources.@resource@.@resource.capitalize@Resource())"],
+        ["hub_import_resources", "from . import @plural_resource@"],
+        ["hub_register_resources", "api.register(@plural_resource@.@resource.capitalize@Resource())"],
         ["cli_bootstrap", "from @module@.cli.controllers import @plural_resource@"]
     ]
 }

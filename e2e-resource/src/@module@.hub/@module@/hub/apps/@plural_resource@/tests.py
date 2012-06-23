@@ -7,6 +7,6 @@ Replace this with more appropriate tests for your application.
 
 from django.test import TestCase
 
-class @resource_class_prefix@Test(TestCase):
+class @resource.capitalize@Test(TestCase):
     def test_@resource@(self):
         pass

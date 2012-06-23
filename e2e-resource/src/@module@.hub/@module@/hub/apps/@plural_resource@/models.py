@@ -2,7 +2,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class @resource_class_prefix@(models.Model):
+class @resource.capitalize@(models.Model):
     class Meta:
         db_table = '@plural_resource@'
         ordering = ['label']

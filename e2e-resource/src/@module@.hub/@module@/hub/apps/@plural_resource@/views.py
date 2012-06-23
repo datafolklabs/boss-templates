@@ -11,30 +11,30 @@ def list(request):
 
 def details(request, env_id):
     data = {}
-    data['environment'] = get_object_or_404(db.@resource_class_prefix@, id=env_id)
+    data['environment'] = get_object_or_404(db.@resource.capitalize@, id=env_id)
     return render(request, 'environments/details.html', data)
 
 def create(request):
     data = {}
     if request.method == 'POST':
-        form = forms.@resource_class_prefix@Form(request.POST)
+        form = forms.@resource.capitalize@Form(request.POST)
         if form.is_valid():
             env = form.save()
             messages.add_message(request, messages.SUCCESS, 
                                  '%s created successfully' % env.label)
             return redirect(reverse('manage_environments'))
     else:
-        form = forms.@resource_class_prefix@Form(initial=dict(created_by=request.user))
+        form = forms.@resource.capitalize@Form(initial=dict(created_by=request.user))
     
     data['form'] = form
     return render(request, 'environments/create.html', data)
 
 def update(request, env_id):
     data = {}
-    env = get_object_or_404(db.@resource_class_prefix@, id=env_id)
+    env = get_object_or_404(db.@resource.capitalize@, id=env_id)
     
     if request.method == 'POST':
-        form = forms.@resource_class_prefix@Form(request.POST, instance=env)
+        form = forms.@resource.capitalize@Form(request.POST, instance=env)
         if form.is_valid():
             env = form.save()
             messages.add_message(request, messages.SUCCESS, 
@@ -42,7 +42,7 @@ def update(request, env_id):
             return redirect(reverse('update_environment',
                                     kwargs={'env_id': env.id}))                                
     else:
-        form = forms.@resource_class_prefix@Form(instance=env)
+        form = forms.@resource.capitalize@Form(instance=env)
 
     data['form'] = form
     data['environment'] = env
@@ -50,7 +50,7 @@ def update(request, env_id):
     
 def delete(request, env_id):
     data = {}
-    env = get_object_or_404(db.@resource_class_prefix@, id=env_id)
+    env = get_object_or_404(db.@resource.capitalize@, id=env_id)
     env.delete()
     messages.add_message(request, messages.WARNING, 
                                  '%s has been deleted.' % env.label)
@@ -58,5 +58,5 @@ def delete(request, env_id):
 
 def manage(request):
     data = {}
-    data['environments'] = db.@resource_class_prefix@.objects.all()
+    data['environments'] = db.@resource.capitalize@.objects.all()
     return render(request, 'environments/manage.html', data)
