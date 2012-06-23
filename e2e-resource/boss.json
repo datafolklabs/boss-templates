@@ -4,8 +4,6 @@
         ["Project Class Prefix Used When Creating Original Project", "class_prefix"],
         ["Resource Name (singular)", "resource"],
         ["Resource Name (plural)", "plural_resource"],
-        ["Resource Class Prefix", "resource_class_prefix"],
-        ["API Version", "api_version"]
     ],
     "injections": [
         ["installed_apps", "    '@module@.hub.apps.@plural_resource@',"]
