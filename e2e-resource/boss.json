@@ -12,6 +12,6 @@
         ["hub_forms", "from @module@.hub.apps.@plural_resource@.forms import @resource.capitalize@Form"],
         ["hub_import_resources", "from . import @plural_resource@"],
         ["hub_register_resources", "api.register(@plural_resource@.@resource.capitalize@Resource())"],
-        ["cli_bootstrap", "from @module@.cli.controllers import @plural_resource@"]
+        ["cli_bootstrap", "from @module@.cli.bootstrap import @plural_resource@"]
     ]
 }

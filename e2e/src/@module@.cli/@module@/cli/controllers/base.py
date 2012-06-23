@@ -9,6 +9,9 @@ class @class_prefix@AbstractBaseController(CementBaseController):
 
     def _dispatch(self, *args, **kw):
         # shortcut to the hub for just this resource controller
+        if not hasattr(self.app, 'hub'):
+            raise exc.@class_prefix@RuntimeError("@project@ hub is inaccessible.")
+
         self.resource = getattr(self.app.hub, self._meta.label)
         super(@class_prefix@AbstractBaseController, self)._dispatch(*args, **kw)
         

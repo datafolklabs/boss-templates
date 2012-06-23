@@ -3,9 +3,9 @@ from tastypie import fields
 from tastypie.resources import ModelResource
 from tastypie.validation import FormValidation
 
-from .. import auth
 from @module@.hub import forms
 from @module@.hub import db
+from @module@.hub.api import auth
 
 class ProfileResource(ModelResource):
     class Meta:

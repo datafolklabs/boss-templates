@@ -3,7 +3,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.urlresolvers import reverse
 from django.contrib import messages
-from kserver.hub import db, forms
+from @module@.hub import db, forms
 
 def list(request):
     data = {}

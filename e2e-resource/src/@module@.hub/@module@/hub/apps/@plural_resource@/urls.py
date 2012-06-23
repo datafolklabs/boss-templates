@@ -2,7 +2,7 @@
 from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('@module@.hub.apps.@plural_resource@.views',
-    url(r'^$', 'index', name='@plural_resource@_index'),
+    url(r'^$', 'list', name='list_@plural_resource@'),
     url(r'^manage/$', 'manage', name='manage_@plural_resource@'),
     url(r'^create/$', 'create', name='create_@resource@'),
     url(r'^(?P<@resource@_id>)/$', 'details', name='@resource@_details'),

@@ -3,10 +3,10 @@ from tastypie import fields
 from tastypie.resources import ModelResource
 from tastypie.validation import FormValidation
 
-from .. import auth
-from .accounts import UserResource
 from @module@.hub import forms
 from @module@.hub import db
+from @module@.hub.api import auth
+from .accounts import UserResource
 
 class ExampleResource(ModelResource):
     class Meta:

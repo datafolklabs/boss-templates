@@ -36,6 +36,9 @@ def main(*args, **kw):
     except exc.@class_prefix@ConfigError as e:
         print e
         sys.exit(1)
+    except exc.@class_prefix@RuntimeError as e:
+        print e
+        sys.exit(1)
     except cement_exc.CementSignalError as e:
         print e
         sys.exit(1)

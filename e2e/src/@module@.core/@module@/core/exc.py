@@ -8,7 +8,7 @@ class @class_prefix@Error(Exception):
         return "<@class_prefix@Error: %s>" % self.msg
     
     def __str__(self):
-        return self.msg
+        return "<@class_prefix@Error: %s>" % self.msg
     
 class @class_prefix@ArgumentError(@class_prefix@Error):
     """@project.capitalize@ Argument Errors."""

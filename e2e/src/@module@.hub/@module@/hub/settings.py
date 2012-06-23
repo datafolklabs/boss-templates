@@ -147,13 +147,13 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    # @boss.mark:hub_apps@
+    '@module@.hub.apps.accounts',
+    '@module@.hub.apps.examples',
     'guardian',
     'userena',
     'tastypie',
     #'socialauth',
-    '@module@.hub.apps.accounts',
-    '@module@.hub.apps.examples',
-    # @boss.mark:hub_apps@
 )
 
 # A sample logging configuration. The only tangible logging
