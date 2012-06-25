@@ -8,6 +8,8 @@
                     <ul class="nav nav-list">
                         <li class="nav-header">@project.capitalize@ Management</li>
                         <li class="{% block subnav_manage_examples %}{% endblock %}"><a href='{% url manage_examples %}'><span>Examples</span></a></li>
+                        <!-- @boss.mark:hub_template_import@ -->
+                        
                         <li class="nav-header">Account Management</li>
                         <li><a href='{% url userena_profile_detail user.username %}'><span>View Profile</span></a></li>
                         <li class="{% block subnav_manage_profile %}{% endblock %}"><a href='{% url userena_profile_edit user.username %}'>Edit Profile</a></li>

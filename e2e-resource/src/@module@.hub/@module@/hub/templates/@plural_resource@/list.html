@@ -1,0 +1,10 @@
+{% extends '@plural_resource@/base.html' %}
+
+{% block content %}
+    <h2>@plural_resource@</h2>
+    <ul>
+        {% for @resource@ in @plural_resource@ %}
+            <li><a href="{% url @resource@_details @resource@.id %}">{{ @resource@.label }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

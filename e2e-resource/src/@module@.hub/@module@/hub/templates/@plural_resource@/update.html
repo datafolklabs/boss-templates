@@ -1,0 +1,33 @@
+{% extends '@plural_resource@/base_manage.html' %}
+
+{% block content %}
+    <div class="tab-header">
+        <ul class="nav nav-tabs" id="#envTabs">
+            <li class="active"><a href="#view" data-toggle="tab">View</a></li>
+            <li><a href="#settings" data-toggle="tab">Settings</a></li>
+        </ul>
+    </div>
+    <div class="tab-content">
+        <div class="tab-pane fade in active" id="view">
+            <h2>{{ @resource@.label|capfirst }} @resource.capitalize@</h2>
+            <hr>
+            <p>
+                Created by <a href="{% url userena_profile_detail @resource@.created_by %}">{{ @resource@.created_by.profile.display_name }}</a> on <i>{{ @resource@.create_date }}</i></br>
+                Last updated on {{ @resource@.update_date }}
+            </p>
+        </div>
+        <div class="tab-pane fade" id="settings">
+            <form action="{% url update_@resource@ @resource@.id %}" method="post" class="form-stacked">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Submit" />
+            </form>
+            <!-- FIX ME need a call out warning block -->
+            <div id="delete-box">
+                <h3>@resource.capitalize@ Deletion</h3>
+                <p>If you are absolutely sure that you want to delete {{ @resource@.label }} and <b>all of its associated data</b>, do so by clicking the big scary red button.</p>
+                <p style="padding-right: 10px;"><a href="{% url delete_@resource@ @resource@.id %}" class="btn btn-danger pull-right" onclick="javascript:return confirm('Forever delete {{ @resource@.label }}?');"><i class="icon-trash"></i> Delete @resource.capitalize@</a></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

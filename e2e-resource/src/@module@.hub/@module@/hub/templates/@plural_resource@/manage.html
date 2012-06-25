@@ -1,0 +1,23 @@
+{% extends '@plural_resource@/base_manage.html' %}
+
+{% block content %}
+    <h2>Manage @plural_resource.capitalize@
+        <a href="{% url create_@resource@ %}" class="btn pull-right">
+            <i class="icon-plus"></i>
+        </a>
+    </h2>
+    <p></p>
+    <div>
+        <table class="table table-striped table-ordered">
+            <thead>
+                <th>Label</th>
+            <tbody>
+                {% for @resource@ in @plural_resource@ %}
+                    <tr>
+                        <td><a href="{% url update_@resource@ @resource@.id %}">{{ @resource@.label }}</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

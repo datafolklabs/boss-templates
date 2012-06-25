@@ -1,0 +1,10 @@
+{% extends '@plural_resource@/base_manage.html' %}
+
+{% block content %}
+    <h2>Create a @resource@</h2>
+    <form action="{% url create_@resource@ %}" method="post" class="form-stacked">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit" />
+    </form>
+{% endblock %}

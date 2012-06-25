@@ -6,12 +6,14 @@
         ["Resource Name (plural)", "plural_resource"]
     ],
     "injections": [
-        ["hub_urls", "url(r'^examples/', include('@module@.hub.apps.@plural_resource@.urls')),"],
+        ["hub_urls", "    url(r'^@plural_resource@/', include('@module@.hub.apps.@plural_resource@.urls')),"],
         ["hub_apps", "    '@module@.hub.apps.@plural_resource@',"],
         ["hub_models", "from @module@.hub.apps.@plural_resource@.models import @resource.capitalize@"],
         ["hub_forms", "from @module@.hub.apps.@plural_resource@.forms import @resource.capitalize@Form"],
         ["hub_import_resources", "from . import @plural_resource@"],
         ["hub_register_resources", "api.register(@plural_resource@.@resource.capitalize@Resource())"],
+        ["hub_template_import", "                        <li class='{% block subnav_manage_@plural_resource@ %}{% endblock %}'><a href='{% url manage_@plural_resource@ %}'><span>@plural_resource.capitalize@</span></a></li>"],
+        ["hub_template_dropdown", "                                    <li><a href='{% url manage_@plural_resource@ %}'>Manage @plural_resource.capitalize@</a></li>"],
         ["cli_bootstrap", "from @module@.cli.bootstrap import @plural_resource@"]
     ]
 }
