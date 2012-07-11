@@ -1,3 +1,0 @@
-@module@.core
--e git+git://github.com/derks/drest.git#egg=drest
--e git+git://github.com/derks/cement.git#egg=cement2
