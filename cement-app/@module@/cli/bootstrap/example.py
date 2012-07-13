@@ -1,0 +1,5 @@
+
+from cement.core import handler
+from @module@.cli.controllers.example import @class_prefix@ExampleController
+
+handler.register(@class_prefix@ExampleController)

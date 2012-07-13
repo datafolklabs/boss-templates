@@ -1,0 +1,11 @@
+{
+    "variables": [
+        ["Version", "version"],
+        ["Python Module Name", "module"],
+        ["Python Class Prefix", "class_prefix"],
+        ["Project Description", "description"],
+        ["Project Creator", "creator"],
+        ["Project Creator Email", "email"],
+        ["Project URL", "url"]
+    ]
+}
