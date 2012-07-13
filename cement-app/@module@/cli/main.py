@@ -5,13 +5,13 @@ from @module@.core import exc
 
 class @class_prefix@App(foundation.CementApp):
     class Meta:
+        bootstrap = '@module@.cli.bootstrap'
         label = '@module@'
 
 app = @class_prefix@App()
 
 def main():
     try:
-        from @module@.cli.bootstrap import base
         app.setup()
         app.run()
     except cement_exc.CementRuntimeError as e:

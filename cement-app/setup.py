@@ -30,9 +30,5 @@ setup(name='@module@',
         [console_scripts]
         @module@ = @module@.cli.main:main
     """,
-    namespace_packages=[
-        '@module@',
-        '@module@.lib',
-        '@module@.cli',
-        ],
+    namespace_packages=[],
     )
