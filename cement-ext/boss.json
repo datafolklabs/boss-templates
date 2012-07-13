@@ -1,0 +1,16 @@
+{
+    "variables": [
+        ["Version", "version"],
+        ["Base Package Name", "package"],
+        ["Extension Module", "ext_module"],
+        ["Python Class Prefix", "class_prefix"],
+        ["Creator", "creator"],
+        ["Creator Email", "email"],
+        ["License", "license"],
+        ["Project URL", "url"]
+    ],
+    "external_files": [
+        [".gitignore", "https://raw.github.com/github/gitignore/master/Python.gitignore"],
+        ["LICENSE", "https://raw.github.com/derks/oss-license/master/license"]
+    ]
+}
