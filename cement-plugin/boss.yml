@@ -1,0 +1,13 @@
+
+delimiter: '@'
+
+variables:
+    version: Version
+    package: Base Package Name (for original project)
+    plugin: Plugin Module
+    class_prefix: Python Class Prefix
+    project: Project Name (that this plugin is for)
+    creator: Plugin Creator
+    email: Plugin Creator Email
+    license: License
+    url: Plugin Url

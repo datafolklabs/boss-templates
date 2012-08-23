@@ -1,0 +1,12 @@
+
+delimiter: '@'
+
+variables:
+    version: Version
+    module: Python Module Name
+    class_prefix: Python Class Prefix
+    description: Project Description
+    creator: Project Creator
+    email: Project Creator Email
+    license: License
+    url: Project Url

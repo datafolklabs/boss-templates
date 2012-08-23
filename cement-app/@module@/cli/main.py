@@ -1,6 +1,7 @@
+"""@project.title@ main application entry point."""
 
 from cement.core import foundation, backend
-from cement.core import exc as cement_exc
+from cement.core.exc import FrameworkError, CaughtSignal
 from @module@.core import exc
 
 class @class_prefix@App(foundation.CementApp):
@@ -8,20 +9,23 @@ class @class_prefix@App(foundation.CementApp):
         bootstrap = '@module@.cli.bootstrap'
         label = '@module@'
 
-app = @class_prefix@App()
-
+class @class_prefix@TestApp(@class_prefix@App):
+    """A test app that is better suited for testing."""
+    class Meta:
+        argv = []
+        config_files = []
+        
 def main():
+    app = @class_prefix@App()
     try:
         app.setup()
         app.run()
-    except cement_exc.CementRuntimeError as e:
-        raise exc.@class_prefix@RuntimeError(e.msg)
-    except cement_exc.CementConfigError as e:
-        raise exc.@class_prefix@ConfigError(e.msg)
-    except cement_exc.CementArgumentError as e:
-        raise exc.@class_prefix@ArgumentError(e.msg)
-    except cement_exc.CementInterfaceError as e:
-        raise exc.@class_prefix@InterfaceError(e.msg)
+    except exc.@class_prefix@Error as e:
+        print(e)
+    except FrameworkError as e:
+        print(e)
+    except CaughtSignal as e:
+        print(e)
     finally:
         app.close()
     

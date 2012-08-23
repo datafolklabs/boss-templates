@@ -1,10 +1,10 @@
-"""Tests for @module@."""
+"""Tests for @project@."""
 
 import unittest
 #from nose.tools import ok_, eq_, raises
 #from nose import SkipTest
     
-class @class_prefix@TestCase(unittest.TestCase):
+class @module.capitalize@TestCase(unittest.TestCase):
     def setUp(self):
         pass
         

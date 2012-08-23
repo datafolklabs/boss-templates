@@ -3,13 +3,13 @@
 # @description@
 #
 # Created by: @creator@ <@email@>
-# @url@
+# License: @license@
+# URL: @url@
 #
 
-import sys
 from cement.core import foundation, backend
 from cement.core.controller import CementBaseController, expose
-from cement.core import exc as cement_exc
+from cement.core.exc import FrameworkError, CaughtSignal
 
 defaults = backend.defaults('@module@')
 defaults['@module@'] = dict(
@@ -27,11 +27,7 @@ class @class_prefix@BaseController(CementBaseController):
     
     @expose(hide=True)
     def default(self):
-        pass
-    
-    @expose()
-    def sub_command(self):
-        pass
+        raise NotImplementedError
         
 class @class_prefix@App(foundation.CementApp):
     class Meta:
@@ -39,15 +35,15 @@ class @class_prefix@App(foundation.CementApp):
         base_controller = @class_prefix@BaseController
         config_defaults = defaults
         
-app = @class_prefix@App()
-
 def main():
+    app = @class_prefix@App()
     try:
         app.setup()
         app.run()
-    except cement_exc.CementSignalError as e:
-        print e.msg
-        sys.exit(1)
+    except FrameworkError as e:
+        print(e)
+    except CaughtSignal as e:
+        print(e)
     finally:
         app.close()
 

@@ -1,16 +1,12 @@
 """Tests for @module@."""
 
-import unittest
-#from nose.tools import ok_, eq_, raises
-#from nose import SkipTest
+from @module@.cli.main import @class_prefix@TestApp
+from cement.utils import test
     
-class @class_prefix@TestCase(unittest.TestCase):
+class @class_prefix@TestCase(test.CementTestCase):
     def setUp(self):
-        pass
-        
-    def tearDown(self):
-        pass
-        
+        super(@class_prefix@TestCase, self).setUp()
+
     def test_@module@(self):
         # do something to test @module@
         pass

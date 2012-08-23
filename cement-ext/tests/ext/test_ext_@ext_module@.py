@@ -1,12 +1,13 @@
 """@ext_module.capitalize@ Framework Extension Tests."""
 
-import unittest
-from nose.tools import eq_, raises
-from cement.utils import test_helper as _t
+from cement.utils import test
 
-class @class_prefix@ExtTestCase(unittest.TestCase):
+class @class_prefix@ExtTestCase(test.CementTestCase):
     def setUp(self):
-        self.app = _t.prep('tests', extensions=['@ext_module@'])
+        super(@class_prefix@ExtTestCase, self).setUp()
+        self.app = self.make_app('tests', 
+            extensions=['@package@.ext.@ext_module@'],
+            )
             
     def test_@ext_module@(self):    
         self.app.setup()
