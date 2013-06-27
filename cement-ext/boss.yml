@@ -13,4 +13,4 @@ variables:
     
 external_files:
     .gitignore: https://raw.github.com/github/gitignore/master/Python.gitignore
-    LICENSE: https://raw.github.com/derks/license/master/@license@
+    LICENSE: https://raw.github.com/datafolklabs/license/master/@license@
