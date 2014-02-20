@@ -4,19 +4,20 @@
 #
 # Created by: @creator@ <@email@>
 # License: @license@
-# URL: @url@
+# Url: @url@
 #
 
-from cement.core import foundation, backend
+from cement.core import foundation
+from cement.utils.misc import init_defaults
 from cement.core.controller import CementBaseController, expose
 from cement.core.exc import FrameworkError, CaughtSignal
 
-defaults = backend.defaults('@module@')
+defaults = init_defaults('@module@')
 defaults['@module@'] = dict(
     debug=False,
     foo='bar',
     )
-    
+
 class @class_prefix@BaseController(CementBaseController):
     class Meta:
         label = 'base'
@@ -24,17 +25,17 @@ class @class_prefix@BaseController(CementBaseController):
         arguments = [
             ( ['-f', '--foo'], dict(help='the notorious foo option')),
             ]
-    
+
     @expose(hide=True)
     def default(self):
-        raise NotImplementedError
-        
+        print "Inside @class_prefix@BaseController.default()"
+
 class @class_prefix@App(foundation.CementApp):
     class Meta:
         label = '@module@'
         base_controller = @class_prefix@BaseController
         config_defaults = defaults
-        
+
 def main():
     app = @class_prefix@App()
     try:

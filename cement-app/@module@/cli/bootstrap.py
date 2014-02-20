@@ -1,4 +1,4 @@
-""" @project.title@ bootstrapping."""
+"""@project.title@ bootstrapping."""
 
 # All built-in application controllers should be imported, and registered
 # in this file in the same way as @class_prefix@BaseController.

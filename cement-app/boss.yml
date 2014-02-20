@@ -11,7 +11,7 @@ variables:
     email: Project Creator Email
     license: License
     url: Project Url
-    
+
 external_files:
     .gitignore: https://raw.github.com/github/gitignore/master/Python.gitignore
     LICENSE: https://raw.github.com/datafolklabs/license/master/@license@

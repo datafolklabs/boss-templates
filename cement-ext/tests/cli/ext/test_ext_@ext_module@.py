@@ -5,11 +5,11 @@ from cement.utils import test
 class @class_prefix@ExtTestCase(test.CementTestCase):
     def setUp(self):
         super(@class_prefix@ExtTestCase, self).setUp()
-        self.app = self.make_app('tests', 
-            extensions=['@package@.ext.@ext_module@'],
+        self.app = self.make_app('tests',
+            extensions=['@package@.cli.ext.@ext_module@'],
             )
-            
-    def test_@ext_module@(self):    
+
+    def test_@ext_module@(self):
         self.app.setup()
         self.app.run()
 
