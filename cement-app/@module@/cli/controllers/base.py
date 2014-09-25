@@ -1,4 +1,4 @@
-"""@project.title@ base controller."""
+"""@project@ base controller."""
 
 from cement.core.controller import CementBaseController, expose
 

@@ -1,4 +1,4 @@
-"""Example Plugin for @project.title@."""
+"""Example Plugin for @project@."""
 
 from cement.core.controller import CementBaseController, expose
 from cement.core import handler, hook

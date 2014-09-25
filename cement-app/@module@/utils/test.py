@@ -1,4 +1,4 @@
-"""Testing utilities for @project.title@."""
+"""Testing utilities for @project@."""
 
 from @module@.cli.main import @class_prefix@TestApp
 from cement.utils.test import *

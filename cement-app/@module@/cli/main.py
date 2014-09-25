@@ -1,4 +1,4 @@
-"""@project.title@ main application entry point."""
+"""@project@ main application entry point."""
 
 from cement.core import foundation
 from cement.utils.misc import init_defaults
