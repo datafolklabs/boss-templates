@@ -6,5 +6,5 @@
 from cement.core import handler
 from @module@.cli.controllers.base import @class_prefix@BaseController
 
-def load():
+def load(app):
     handler.register(@class_prefix@BaseController)

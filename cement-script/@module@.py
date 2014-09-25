@@ -36,17 +36,39 @@ class @class_prefix@App(foundation.CementApp):
         base_controller = @class_prefix@BaseController
         config_defaults = defaults
 
+
+app = @class_prefix@App()
+
 def main():
-    app = @class_prefix@App()
     try:
+        # Default our exit status to 0 (non-error)
+        code = 0
+
+        # Setup the application
         app.setup()
+
+        # Run the application
         app.run()
     except FrameworkError as e:
+        # Catch framework errors and exit 1 (error)
+        code = 1
         print(e)
     except CaughtSignal as e:
+        # Default Cement signals are SIGINT and SIGTERM, exit 0 (non-error)
+        code = 0
         print(e)
     finally:
-        app.close()
+        # Print an exception (if it occurred) and --debug was passed
+        if app.debug:
+            import sys
+            import traceback
+
+            exc_type, exc_value, exc_traceback = sys.exc_info()
+            if exc_traceback is not None:
+                traceback.print_exc()
+
+        # Close the application
+        app.close(code)
 
 if __name__ == '__main__':
     main()

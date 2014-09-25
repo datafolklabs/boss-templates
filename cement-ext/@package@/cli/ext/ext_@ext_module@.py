@@ -6,6 +6,6 @@ LOG = minimal_logger(__name__)
 
 ### CODE HANDLERS, HOOKS, ETC HERE
 
-def load():
+def load(app):
     ### LOAD HANDLERS, HOOKS, ETC HERE
     pass

@@ -15,6 +15,6 @@ class @class_prefix@PluginController(CementBaseController):
         label = "@plugin@"
         description = "@plugin.capitalize@ Plugin for @project.title@."
 
-def load():
+def load(app):
     handler.register(@class_prefix@PluginController)
 

@@ -33,12 +33,16 @@ class ExamplePluginController(CementBaseController):
             )
         ]
 
+    @expose(hide=True)
+    def default(self):
+        print("Inside ExamplePluginController.default()")
+
     @expose(help="this is an example sub-command.")
     def example_plugin_command(self):
-        print("Inside ExamplePluginController.example_plugin_command().")
+        print("Inside ExamplePluginController.example_plugin_command()")
 
 
-def load():
+def load(app):
     # register the plugin class.. this only happens if the plugin is enabled
     handler.register(ExamplePluginController)
 

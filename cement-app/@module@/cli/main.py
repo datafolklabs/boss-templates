@@ -5,17 +5,17 @@ from cement.utils.misc import init_defaults
 from cement.core.exc import FrameworkError, CaughtSignal
 from @module@.core import exc
 
-# application default.  Should update config/@module@.conf to reflect any
+# Application default.  Should update config/@module@.conf to reflect any
 # changes, or additions here.
 defaults = init_defaults('@module@')
 
-# all internal/external plugin configurations are loaded from here
+# All internal/external plugin configurations are loaded from here
 defaults['@module@']['plugin_config_dir'] = '/etc/@module@/plugins.d'
 
-# external plugins (generally, do not ship with application code)
+# External plugins (generally, do not ship with application code)
 defaults['@module@']['plugin_dir'] = '/var/lib/@module@/plugins'
 
-# external templates (generally, do not ship with application code)
+# External templates (generally, do not ship with application code)
 defaults['@module@']['template_dir'] = '/var/lib/@module@/templates'
 
 
@@ -24,16 +24,16 @@ class @class_prefix@App(foundation.CementApp):
         label = '@module@'
         config_defaults = defaults
 
-        # all built-in application bootstrapping (always run)
+        # All built-in application bootstrapping (always run)
         bootstrap = '@module@.cli.bootstrap'
 
-        # optional plugin bootstrapping (only run if plugin is enabled)
+        # Optional plugin bootstrapping (only run if plugin is enabled)
         plugin_bootstrap = '@module@.cli.plugins'
 
-        # internal templates (ship with application code)
+        # Internal templates (ship with application code)
         template_module = '@module@.cli.templates'
 
-        # internal plugins (ship with application code)
+        # Internal plugins (ship with application code)
         plugin_bootstrap = '@module@.cli.plugins'
 
 
@@ -44,22 +44,44 @@ class @class_prefix@TestApp(@class_prefix@App):
         config_files = []
 
 
-# define the applicaiton object outside of main, as some libraries might wish
+# Define the applicaiton object outside of main, as some libraries might wish
 # to import it as a global (rather than passing it into another class/func)
 app = @class_prefix@App()
 
 def main():
     try:
+        # Default our exit status to 0 (non-error)
+        code = 0
+
+        # Setup the application
         app.setup()
+
+        # Run the application
         app.run()
     except exc.@class_prefix@Error as e:
+        # Catch our application errors and exit 1 (error)
+        code = 1
         print(e)
     except FrameworkError as e:
+        # Catch framework errors and exit 1 (error)
+        code = 1
         print(e)
     except CaughtSignal as e:
+        # Default Cement signals are SIGINT and SIGTERM, exit 0 (non-error)
+        code = 0
         print(e)
     finally:
-        app.close()
+        # Print an exception (if it occurred) and --debug was passed
+        if app.debug:
+            import sys
+            import traceback
+
+            exc_type, exc_value, exc_traceback = sys.exc_info()
+            if exc_traceback is not None:
+                traceback.print_exc()
+
+        # Close the application
+        app.close(code)
 
 if __name__ == '__main__':
     main()
