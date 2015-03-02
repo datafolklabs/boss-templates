@@ -14,7 +14,7 @@ class @class_prefix@BaseController(CementBaseController):
 
     @expose(hide=True)
     def default(self):
-        print "Inside @class_prefix@BaseController.default()."
+        print("Inside @class_prefix@BaseController.default().")
 
         # If using an output handler such as 'mustache', you could also
         # render a data dictionary using a template.  For example:
