@@ -80,8 +80,8 @@ def main():
             if exc_traceback is not None:
                 traceback.print_exc()
 
-        # Close the application
-        app.close(code)
+    # Close the application
+    app.close(code)
 
 if __name__ == '__main__':
     main()
