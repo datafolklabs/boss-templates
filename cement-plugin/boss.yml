@@ -1,6 +1,4 @@
 
-delimiter: '@'
-
 variables:
     version: Version
     package: Base Package Name (for original project)

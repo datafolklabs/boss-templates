@@ -1,6 +1,4 @@
 
-delimiter: '@'
-
 variables:
     package: Base Package Name
     ext_module: Extension Module

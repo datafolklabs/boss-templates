@@ -49,39 +49,25 @@ class @class_prefix@TestApp(@class_prefix@App):
 app = @class_prefix@App()
 
 def main():
-    try:
-        # Default our exit status to 0 (non-error)
-        code = 0
+    with app:
+        try:
+            app.run()
+        
+        except exc.@class_prefix@Error as e:
+            # Catch our application errors and exit 1 (error)
+            print(e)
+            app.exit_code = 1
+            
+        except FrameworkError as e:
+            # Catch framework errors and exit 1 (error)
+            print(e)
+            app.exit_code = 1
+            
+        except CaughtSignal as e:
+            # Default Cement signals are SIGINT and SIGTERM, exit 0 (non-error)
+            print(e)
+            app.exit_code = 0
 
-        # Setup the application
-        app.setup()
-
-        # Run the application
-        app.run()
-    except exc.@class_prefix@Error as e:
-        # Catch our application errors and exit 1 (error)
-        code = 1
-        print(e)
-    except FrameworkError as e:
-        # Catch framework errors and exit 1 (error)
-        code = 1
-        print(e)
-    except CaughtSignal as e:
-        # Default Cement signals are SIGINT and SIGTERM, exit 0 (non-error)
-        code = 0
-        print(e)
-    finally:
-        # Print an exception (if it occurred) and --debug was passed
-        if app.debug:
-            import sys
-            import traceback
-
-            exc_type, exc_value, exc_traceback = sys.exc_info()
-            if exc_traceback is not None:
-                traceback.print_exc()
-
-    # Close the application
-    app.close(code)
 
 if __name__ == '__main__':
     main()

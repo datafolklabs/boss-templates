@@ -5,7 +5,7 @@ from cement.core.controller import CementBaseController, expose
 class @class_prefix@BaseController(CementBaseController):
     class Meta:
         label = 'base'
-        description = '@description.lower@'
+        description = '@description@'
         arguments = [
             (['-f', '--foo'],
              dict(help='the notorious foo option', dest='foo', action='store',

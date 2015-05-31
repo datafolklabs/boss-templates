@@ -1,6 +1,4 @@
 
-delimiter: '@'
-
 variables:
     version: Version
     module: Python Module Name
