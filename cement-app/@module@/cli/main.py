@@ -55,17 +55,17 @@ def main():
         
         except exc.@class_prefix@Error as e:
             # Catch our application errors and exit 1 (error)
-            print(e)
+            print('@class_prefix@Error > %s' % e)
             app.exit_code = 1
             
         except FrameworkError as e:
             # Catch framework errors and exit 1 (error)
-            print(e)
+            print('FrameworkError > %s' % e)
             app.exit_code = 1
             
         except CaughtSignal as e:
             # Default Cement signals are SIGINT and SIGTERM, exit 0 (non-error)
-            print(e)
+            print('CaughtSignal > %s' % e)
             app.exit_code = 0
 
 
