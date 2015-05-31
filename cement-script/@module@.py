@@ -28,7 +28,7 @@ class @class_prefix@BaseController(CementBaseController):
 
     @expose(hide=True)
     def default(self):
-        print "Inside @class_prefix@BaseController.default()"
+        print("Inside @class_prefix@BaseController.default()")
 
 class @class_prefix@App(CementApp):
     class Meta:
