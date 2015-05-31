@@ -1,6 +1,6 @@
 """@project@ main application entry point."""
 
-from cement.core import foundation
+from cement.core.foundation import CementApp
 from cement.utils.misc import init_defaults
 from cement.core.exc import FrameworkError, CaughtSignal
 from @module@.core import exc
