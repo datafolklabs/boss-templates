@@ -40,8 +40,14 @@ class @class_prefix@App(foundation.CementApp):
 class @class_prefix@TestApp(@class_prefix@App):
     """A test app that is better suited for testing."""
     class Meta:
+        # default argv to empty (don't use sys.argv)
         argv = []
+
+        # don't look for config files (could break tests)
         config_files = []
+
+        # don't call sys.exit() when app.close() is called in tests
+        exit_on_close = False
 
 
 # Define the applicaiton object outside of main, as some libraries might wish
