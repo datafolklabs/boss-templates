@@ -19,7 +19,7 @@ defaults['@module@']['plugin_dir'] = '/var/lib/@module@/plugins'
 defaults['@module@']['template_dir'] = '/var/lib/@module@/templates'
 
 
-class @class_prefix@App(foundation.CementApp):
+class @class_prefix@App(CementApp):
     class Meta:
         label = '@module@'
         config_defaults = defaults
