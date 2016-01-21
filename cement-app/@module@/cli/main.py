@@ -19,7 +19,7 @@ defaults['@module@']['plugin_dir'] = '/var/lib/@module@/plugins'
 defaults['@module@']['template_dir'] = '/var/lib/@module@/templates'
 
 
-class @class_prefix@App(foundation.CementApp):
+class @class_prefix@App(CementApp):
     class Meta:
         label = '@module@'
         config_defaults = defaults
@@ -27,14 +27,11 @@ class @class_prefix@App(foundation.CementApp):
         # All built-in application bootstrapping (always run)
         bootstrap = '@module@.cli.bootstrap'
 
-        # Optional plugin bootstrapping (only run if plugin is enabled)
+        # Internal plugins (ship with application code)
         plugin_bootstrap = '@module@.cli.plugins'
 
         # Internal templates (ship with application code)
         template_module = '@module@.cli.templates'
-
-        # Internal plugins (ship with application code)
-        plugin_bootstrap = '@module@.cli.plugins'
 
 
 class @class_prefix@TestApp(@class_prefix@App):
