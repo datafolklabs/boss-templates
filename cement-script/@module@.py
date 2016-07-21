@@ -9,8 +9,9 @@
 
 from cement.core.foundation import CementApp
 from cement.utils.misc import init_defaults
-from cement.core.controller import CementBaseController, expose
+from cement.ext.ext_argparse import ArgparseController, expose
 from cement.core.exc import FrameworkError, CaughtSignal
+
 
 defaults = init_defaults('@module@')
 defaults['@module@'] = dict(
@@ -18,7 +19,8 @@ defaults['@module@'] = dict(
     foo='bar',
     )
 
-class @class_prefix@BaseController(CementBaseController):
+
+class @class_prefix@BaseController(ArgparseController):
     class Meta:
         label = 'base'
         description = '@description@'
@@ -30,11 +32,14 @@ class @class_prefix@BaseController(CementBaseController):
     def default(self):
         print("Inside @class_prefix@BaseController.default()")
 
+
 class @class_prefix@App(CementApp):
     class Meta:
         label = '@module@'
         base_controller = @class_prefix@BaseController
         config_defaults = defaults
+        exit_on_close = True
+
 
 def main():
     with @class_prefix@App() as app:
@@ -50,6 +55,7 @@ def main():
             # Default Cement signals are SIGINT and SIGTERM, exit 0 (non-error)
             print('CaughtSignal > %s' % e)
             app.exit_code = 0
+
 
 if __name__ == '__main__':
     main()

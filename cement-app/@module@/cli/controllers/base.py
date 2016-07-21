@@ -1,8 +1,8 @@
 """@project@ base controller."""
 
-from cement.core.controller import CementBaseController, expose
+from cement.ext.ext_argparse import ArgparseController, expose
 
-class @class_prefix@BaseController(CementBaseController):
+class @class_prefix@BaseController(ArgparseController):
     class Meta:
         label = 'base'
         description = '@description@'

@@ -33,6 +33,9 @@ class @class_prefix@App(CementApp):
         # Internal templates (ship with application code)
         template_module = '@module@.cli.templates'
 
+        # call sys.exit() when app.close() is called
+        exit_on_close = True
+
 
 class @class_prefix@TestApp(@class_prefix@App):
     """A test app that is better suited for testing."""

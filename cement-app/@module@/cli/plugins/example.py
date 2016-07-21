@@ -1,13 +1,12 @@
 """Example Plugin for @project@."""
 
-from cement.core.controller import CementBaseController, expose
-from cement.core import handler, hook
+from cement.ext.ext_argparse import ArgparseController, expose
 
 def example_plugin_hook(app):
     # do something with the ``app`` object here.
     pass
 
-class ExamplePluginController(CementBaseController):
+class ExamplePluginController(ArgparseController):
     class Meta:
         # name that the controller is displayed at command line
         label = 'example'
@@ -44,7 +43,7 @@ class ExamplePluginController(CementBaseController):
 
 def load(app):
     # register the plugin class.. this only happens if the plugin is enabled
-    handler.register(ExamplePluginController)
+    app.handler.register(ExamplePluginController)
 
     # register a hook (function) to run after arguments are parsed.
-    hook.register('post_argument_parsing', example_plugin_hook)
+    app.hook.register('post_argument_parsing', example_plugin_hook)

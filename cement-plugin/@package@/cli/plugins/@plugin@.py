@@ -7,7 +7,6 @@ URL: @url@
 
 """
 
-from cement.core import handler
 from cement.core.controller import CementBaseController, expose
 
 class @class_prefix@PluginController(CementBaseController):
@@ -16,5 +15,5 @@ class @class_prefix@PluginController(CementBaseController):
         description = "@plugin.capitalize@ Plugin for @project@."
 
 def load(app):
-    handler.register(@class_prefix@PluginController)
+    app.handler.register(@class_prefix@PluginController)
 
